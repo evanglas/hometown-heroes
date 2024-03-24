@@ -7,7 +7,7 @@ import Rating from '@material-ui/lab/Rating';
 import mapStyles from '../../mapStyles';
 import useStyles from './styles';
 
-const Map = ({ coords, setCoords, setBounds, setChildClicked, heroes }) => {
+const Map = ({ switchState, businesses, coords, setCoords, setBounds, setChildClicked, heroes }) => {
     const matches = useMediaQuery('(min-width:600px)');
     const classes = useStyles();
 
@@ -28,7 +28,7 @@ const Map = ({ coords, setCoords, setBounds, setChildClicked, heroes }) => {
                 }}
                 onChildClick={(child) => setChildClicked(child)}
             >
-                {heroes.length && heroes.map((hero, i) => (
+                {(heroes.length && !switchState) && heroes.map((hero, i) => (
                     <div
                         className={classes.markerContainer}
                         lat={Number(hero.lat)}
@@ -49,11 +49,27 @@ const Map = ({ coords, setCoords, setBounds, setChildClicked, heroes }) => {
                             )}
                     </div>
                 ))}
-                {/* {weatherData?.list?.length && weatherData.list.map((data, i) => (
-                    <div key={i} lat={data.coord.lat} lng={data.coord.lon}>
-                        <img src={`http://openweathermap.org/img/w/${data.weather[0].icon}.png`} height="70px" />
+                {(businesses.length && switchState) && businesses.map((b, i) => (
+                    <div
+                        className={classes.markerContainer}
+                        lat={Number(b.lat)}
+                        lng={Number(b.lng)}
+                        key={i}
+                    >
+                        {!matches
+                            ? <LocationOnOutlinedIcon color="primary" fontSize="large" />
+                            : (
+                                <Paper elevation={3} className={classes.paper}>
+                                    <Typography className={classes.typography} variant="subtitle2">{b.name}</Typography>
+                                    <img
+                                        className={classes.pointer}
+                                        src={b.img_src}
+                                    />
+                                    {/* <Typography className={classes.typography} variant="subtitle2" gutterBottom>{hero.Team}</Typography> */}
+                                </Paper>
+                            )}
                     </div>
-                ))} */}
+                ))}
             </GoogleMapReact>
         </div>
     );

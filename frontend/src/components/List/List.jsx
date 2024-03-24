@@ -2,9 +2,10 @@ import React, { useState, useEffect, createRef } from 'react';
 import { CircularProgress, Grid, Typography, InputLabel, MenuItem, FormControl, Select } from '@material-ui/core';
 
 import PlaceDetails from '../PlaceDetails/PlaceDetails';
+import BusinessDetails from '../BusinessDetails/BusinessDetails';
 import useStyles from './styles.jsx';
 
-const List = ({ childClicked, heroes, isLoading, type, setType, setRating, rating }) => {
+const List = ({ switchState, businesses, childClicked, heroes, isLoading, type, setType, setRating, rating }) => {
     const [elRefs, setElRefs] = useState([]);
     const classes = useStyles();
 
@@ -14,7 +15,7 @@ const List = ({ childClicked, heroes, isLoading, type, setType, setRating, ratin
 
     return (
         <div className={classes.container}>
-            <Typography variant="h4">Local Athletes</Typography>
+            <Typography variant="h4" gutterBottom>{switchState ? 'Businesses' : 'Local Athletes'}</Typography>
             {isLoading ? (
                 <div className={classes.loading}>
                     <CircularProgress size="5rem" />
@@ -39,9 +40,14 @@ const List = ({ childClicked, heroes, isLoading, type, setType, setRating, ratin
                         </Select>
                     </FormControl> */}
                     <Grid container spacing={3} className={classes.list}>
-                        {heroes?.map((hero, i) => (
+                        {!switchState && heroes?.map((hero, i) => (
                             <Grid ref={elRefs[i]} key={i} item xs={12}>
                                 <PlaceDetails selected={Number(childClicked) === i} refProp={elRefs[i]} hero={hero} />
+                            </Grid>
+                        ))}
+                        {switchState && businesses?.map((b, i) => (
+                            <Grid ref={elRefs[i]} key={i} item xs={12}>
+                                <BusinessDetails selected={Number(childClicked) === i} refProp={elRefs[i]} business={b} />
                             </Grid>
                         ))}
                     </Grid>

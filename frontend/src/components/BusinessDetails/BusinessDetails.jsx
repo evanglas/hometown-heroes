@@ -10,7 +10,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css'
 
 import useStyles from './styles.jsx';
 
-const PlaceDetails = ({ hero, selected, refProp }) => {
+const BusinessDetails = ({ business, selected, refProp }) => {
     if (selected) refProp?.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     const classes = useStyles();
 
@@ -18,19 +18,13 @@ const PlaceDetails = ({ hero, selected, refProp }) => {
         <Card elevation={6}>
             <CardMedia
                 style={{ height: 350 }}
-                image={hero.headshot_href}
-                title={hero.firstName + ' ' + hero.lastName}
+                image={"https://picsum.photos/id/" + Math.floor(Math.random() * 1000) + "/1000"}
+                title={business.name}
             />
             <CardContent>
-                <Typography gutterBottom variant="h5">{hero.firstName + ' ' + hero.lastName}</Typography>
-                <Typography variant="body1" color="textSecondary">{hero.Team}</Typography>
+                <Typography gutterBottom variant="h5">{business.name}</Typography>
                 <Typography gutterBottom variant="body2" color="textSecondary">{'example.email@address.com'}</Typography>
-                <Box display="flex" justifyContent="left" alignItems="center">
-                    <FontAwesomeIcon icon={faInstagram} size="2x mr-1" />
-                    {Math.floor(Math.random() * 100000)}
-                    <FontAwesomeIcon icon={faTwitter} size="2x" className="ml-5 mr-1" />
-                    {Math.floor(Math.random() * 100000)}
-                </Box>
+                <Typography variant="h6" className="text-green-500">{"Endorsement Value: $" + Math.floor(Math.random() * 1000)}</Typography>
                 {/* <Box display="flex" justifyContent="space-between" my={2}>
                     <Rating name="read-only" value={Number(place.rating)} readOnly />
                     <Typography component="legend">{place.num_reviews} review{place.num_reviews > 1 && 's'}</Typography>
@@ -79,4 +73,4 @@ const PlaceDetails = ({ hero, selected, refProp }) => {
     );
 };
 
-export default PlaceDetails;
+export default BusinessDetails;

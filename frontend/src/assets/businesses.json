@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Durham Coffee Co.",
+    "lat": 35.9967,
+    "lng": -78.9018,
+    "img_src": "https://picsum.photos/1000"
+  },
+  {
+    "name": "Durham Garden Center",
+    "lat": 35.9981,
+    "lng": -78.9082,
+    "img_src": "https://picsum.photos/1000"
+  },
+  {
+    "name": "Tech Hub Durham",
+    "lat": 35.994,
+    "lng": -78.8986,
+    "img_src": "https://picsum.photos/1000"
+  },
+  {
+    "name": "Fashion Finds Durham",
+    "lat": 35.9947,
+    "lng": -78.8983,
+    "img_src": "https://picsum.photos/1000"
+  },
+  {
+    "name": "Healthy Eats Durham",
+    "lat": 35.94,
+    "lng": -78.8981,
+    "img_src": "https://picsum.photos/1000"
+  },
+  {
+    "name": "Factory VII",
+    "lat": 36,
+    "lng": -78.1,
+    "img_src": "https://picsum.photos/1000"
+  },
+  {
+    "name": "Pizza Palace",
+    "lat": 35.91,
+    "lng": -78.2,
+    "img_src": "https://picsum.photos/1000"
+  },
+  {
+    "name": "Tech Center",
+    "lat": 35.994,
+    "lng": -78.3,
+    "img_src": "https://picsum.photos/1000"
+  },
+  {
+    "name": "Fashion Place",
+    "lat": 35.947,
+    "lng": -78.4,
+    "img_src": "https://picsum.photos/1000"
+  },
+  {
+    "name": "Healthy Eating",
+    "lat": 35.994,
+    "lng": -78.5,
+    "img_src": "https://picsum.photos/1000"
+  }
+]

@@ -13,12 +13,11 @@ const Map = ({ coords, setCoords, setBounds, setChildClicked, heroes }) => {
 
     return (
         <div className={classes.mapContainer}>
-            Hi
             <GoogleMapReact
                 bootstrapURLKeys={{
                     key: "AIzaSyDz2_3LrsE-Q6W2TSBUE7_ka2VzsTLwks8"
                 }}
-                defaultCenter={coords}
+                defaultCenter={{ lat: 35, lng: 78 }}
                 center={coords}
                 defaultZoom={14}
                 margin={[50, 50, 50, 50]}
@@ -32,20 +31,20 @@ const Map = ({ coords, setCoords, setBounds, setChildClicked, heroes }) => {
                 {heroes.length && heroes.map((hero, i) => (
                     <div
                         className={classes.markerContainer}
-                        lat={Number(48 + Math.random() * 0.1)}
-                        lng={Number(-90 + Math.random() + 0.1)}
+                        lat={Number(hero.lat)}
+                        lng={Number(hero.lng)}
                         key={i}
                     >
                         {!matches
                             ? <LocationOnOutlinedIcon color="primary" fontSize="large" />
                             : (
                                 <Paper elevation={3} className={classes.paper}>
-                                    <Typography className={classes.typography} variant="subtitle2" gutterBottom>{hero.firstName} {hero.lastName}</Typography>
+                                    <Typography className={classes.typography} variant="subtitle2">{hero.firstName} {hero.lastName}</Typography>
                                     <img
                                         className={classes.pointer}
                                         src={hero.headshot_href}
                                     />
-                                    <Typography className={classes.typography} variant="subtitle2" gutterBottom>{hero.Team}</Typography>
+                                    {/* <Typography className={classes.typography} variant="subtitle2" gutterBottom>{hero.Team}</Typography> */}
                                 </Paper>
                             )}
                     </div>

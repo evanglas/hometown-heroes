@@ -23,8 +23,12 @@ const PlaceDetails = ({ hero, selected, refProp }) => {
             />
             <CardContent>
                 <Typography gutterBottom variant="h5">{hero.firstName + ' ' + hero.lastName}</Typography>
-                <Typography variant="body2" color="textSecondary">{hero.Team}</Typography>
-                <FontAwesomeIcon icon={faInstagram} size="2x" />
+                <Typography variant="body1" color="textSecondary">{hero.Team}</Typography>
+                <Typography gutterBottom variant="body2" color="textSecondary">{'example.email@address.com'}</Typography>
+                <Box display="flex" justifyContent="left">
+                    <FontAwesomeIcon icon={faInstagram} size="2x" className='mr-4' />
+                    <FontAwesomeIcon icon={faTwitter} size="2x" />
+                </Box>
                 {/* <Box display="flex" justifyContent="space-between" my={2}>
                     <Rating name="read-only" value={Number(place.rating)} readOnly />
                     <Typography component="legend">{place.num_reviews} review{place.num_reviews > 1 && 's'}</Typography>
@@ -69,7 +73,7 @@ const PlaceDetails = ({ hero, selected, refProp }) => {
                     Website
                 </Button>
             </CardActions> */}
-        </Card>
+        </Card >
     );
 };
 

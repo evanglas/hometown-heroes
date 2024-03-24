@@ -5,12 +5,12 @@ import { CssBaseline, Grid } from '@material-ui/core';
 import axios from 'axios';
 import Spinner from '../components/Spinner';
 import { Link } from 'react-router-dom';
-// import { getPlacesData, getWeatherData } from './api/travelAdvisorAPI';
+import { getHeroesData } from '../api/herosAPI';
 import Header from '../components/Header/Header';
 import List from '../components/List/List';
 import Map from '../components/Map/Map';
 
-import data from '../assets/heroesDataset.json';
+import data from '../assets/full_player_locs.json';
 
 const Home = () => {
     const [heroes, setHeroes] = useState(data.splice(0, 10));
@@ -81,6 +81,26 @@ const Home = () => {
         console.log(lat)
         setCoords({ lat, lng });
     };
+
+    useEffect(() => {
+        if (bounds) {
+            setIsLoading(true);
+
+            try {
+                getHeroesData(type, bounds.sw, bounds.ne)
+                    .then((data) => {
+                        setHeroes(data);
+                        setFilteredPlaces([]);
+                        setRating('');
+                        setIsLoading(false);
+                        console.log(data.length)
+                    });
+            } catch (error) {
+                console.error(error);
+            }
+
+        }
+    }, [bounds, type]);
 
     return (
         <>

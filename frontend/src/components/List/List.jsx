@@ -14,14 +14,14 @@ const List = ({ childClicked, heroes, isLoading, type, setType, setRating, ratin
 
     return (
         <div className={classes.container}>
-            <Typography variant="h4">Food & Dining around you</Typography>
+            <Typography variant="h4">Local Athletes</Typography>
             {isLoading ? (
                 <div className={classes.loading}>
                     <CircularProgress size="5rem" />
                 </div>
             ) : (
                 <>
-                    <FormControl className={classes.formControl}>
+                    {/* <FormControl className={classes.formControl}>
                         <InputLabel id="type">Type</InputLabel>
                         <Select id="type" value={type} onChange={(e) => setType(e.target.value)}>
                             <MenuItem value="restaurants">Restaurants</MenuItem>
@@ -37,7 +37,7 @@ const List = ({ childClicked, heroes, isLoading, type, setType, setRating, ratin
                             <MenuItem value="4">Above 4.0</MenuItem>
                             <MenuItem value="4.5">Above 4.5</MenuItem>
                         </Select>
-                    </FormControl>
+                    </FormControl> */}
                     <Grid container spacing={3} className={classes.list}>
                         {heroes?.map((hero, i) => (
                             <Grid ref={elRefs[i]} key={i} item xs={12}>
